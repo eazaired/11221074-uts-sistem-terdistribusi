@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  aggregator:
+    build: .
+    container_name: aggregator
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data  
+
+  publisher:
+    image: python:3.11-slim
+    container_name: publisher
+    working_dir: /app
+    volumes:
+    - ./pub:/app
+    command: ["/bin/sh", "-lc", "pip install --no-cache-dir requests && python publisher.py"]
+    depends_on:
+    - aggregator
+
