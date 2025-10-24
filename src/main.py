@@ -2,6 +2,7 @@
 import asyncio
 from typing import Any
 from contextlib import asynccontextmanager
+import os
 
 from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
@@ -11,7 +12,11 @@ from .storage import Storage
 from .consumer import Consumer
 from .utils import Uptime
 
-def create_app(db_path: str = "data/data.db") -> FastAPI:
+def create_app(db_path: str | None = None) -> FastAPI:
+    # Tentukan DB path dari argumen atau ENV (default ke data/data.db)
+    db_path = db_path or os.getenv("DB_PATH", "data/data.db")
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+
     app = FastAPI(title="UTS Pub-Sub Log Aggregator", version="1.0.0")
 
     @asynccontextmanager

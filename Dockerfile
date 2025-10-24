@@ -1,5 +1,5 @@
 FROM python:3.11-slim
-ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 DB_PATH=/app/data/data.db
 WORKDIR /app
 
 RUN adduser --disabled-password --gecos '' appuser && chown -R appuser:appuser /app
