@@ -4,6 +4,8 @@
 **NIM:** [11221074]  
 **Mata Kuliah:** Sistem Paralel dan Terdistribusi  
 
+Link Youtube    : [https://youtu.be/08bNja3tXMk](https://youtu.be/08bNja3tXMk)
+
 ## Deskripsi Singkat
 Proyek ini mengimplementasikan sistem *publish-subscribe* sederhana dengan deduplication dan idempotent consumer menggunakan Python (FastAPI, asyncio, dan SQLite).  
 Sistem ini mendukung **at-least-once delivery**, **deduplication store**, dan **persistent data** melalui Docker volume.
