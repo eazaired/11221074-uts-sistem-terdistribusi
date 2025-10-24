@@ -25,9 +25,6 @@ git clone https://github.com/eazaired/11221074-uts-sistem-terdistribusi.git
 # install dependency
 pip install -r requirements.txt
 
-# jalankan aplikasi
-uvicorn src.main:app --host 0.0.0.0 --port 8080
-
 # build image
 docker build -t uts-aggregator .
 
