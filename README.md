@@ -25,3 +25,9 @@ pip install -r requirements.txt
 
 # jalankan aplikasi
 uvicorn src.main:app --host 0.0.0.0 --port 8080
+
+# build image
+docker build -t uts-aggregator .
+
+# run container
+docker run --rm --name uts-agg -p 8080:8080 -v "${PWD}\data:/app/data" uts-aggregator
